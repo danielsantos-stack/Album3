@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello — Daniel</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .player {
+      text-align: center;
+      color: white;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    video {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: auto;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-weight: 400;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="player">
+    <h1>Hello</h1>
+
+    <video id="disco" muted playsinline loop>
+      <source src="Mi%20pelicula%202.mp4" type="video/mp4">
+    </video>
+
+    <audio id="audio" controls>
+      <source src="Hello.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    const audio = document.getElementById("audio");
+    const disco = document.getElementById("disco");
+
+    audio.addEventListener("play", () => {
+      disco.play();
+    });
+
+    audio.addEventListener("pause", () => {
+      disco.pause();
+    });
+
+    audio.addEventListener("ended", () => {
+      disco.pause();
+      disco.currentTime = 0;
+    });
+  </script>
+
+</body>
+</html>
